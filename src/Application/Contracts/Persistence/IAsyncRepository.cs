@@ -12,5 +12,5 @@ public interface IAsyncRepository<T> where T : class
     Task<T> Create(T entity, CancellationToken cancellationToken = default);
     Task<bool> Update(T entity, CancellationToken cancellationToken = default);
     Task<bool>  Delete(Guid id, CancellationToken cancellationToken = default);
-    Task<IEnumerable<object>> GetAllDrawingData();
+
 }

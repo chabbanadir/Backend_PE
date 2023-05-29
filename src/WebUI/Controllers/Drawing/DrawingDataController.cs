@@ -2,6 +2,9 @@ using System;
 using System.Threading.Tasks;
 using Backend.Application.Features.DrawingData.Commands;
 using Backend.Application.Features.DrawingData.Dtos;
+using Backend.Application.Features.DrawingData.Queries.GetDrawingDatas;
+using Backend.Application.Features.Drawings.Queries.GetDrawingDetail;
+using Backend.Application.Features.MasterData.Cables.Queries.GetCableDetail;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -38,5 +41,24 @@ namespace Backend.WebUI.Controllers
         }
         
         
+
+
+        [HttpGet("drawings/{id:guid}")]
+        public async Task<ActionResult<DrawingDataDetailVm>> GetDrawingById(string id)
+        {  
+            var result = await _mediator.Send(new GetDrawingDataDetailQuery { Id = id });
+
+            return Ok(result);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<DrawingDataDto>>> GetDrawingDatas()
+        {
+            var query = new GetDrawingDatasQuery();
+            var drawingDatas = await _mediator.Send(query);
+
+            return Ok(drawingDatas);
+        }
+
     }
 }

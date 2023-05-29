@@ -89,9 +89,7 @@ public class AsyncRepository<T> : IAsyncRepository<T> where T : AuditableEntity
         return false;
     }
 
-    public async Task<IEnumerable<object>> GetAllDrawingData(){
-        return null;
-    }
+
 
 
 /*    public async Task<IReadOnlyList<T>> GetAllAsync(string[]? includes = null, CancellationToken cancellationToken = default)

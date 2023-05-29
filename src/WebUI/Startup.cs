@@ -9,6 +9,7 @@ using NSwag;
 using NSwag.Generation.Processors.Security;
 using Backend.Infrastructure.Services;
 using Microsoft.Extensions.Logging;
+using MediatR;
 
 namespace Backend.WebUI;
 
@@ -51,7 +52,8 @@ public class Startup
             return new LocalFileStorageService(storageDirectory);
         });
 
-
+        services.AddMediatR(typeof(Startup));
+        
         services.AddControllersWithViews(options =>
             options.Filters.Add<ApiExceptionFilterAttribute>())
                 .AddFluentValidation(x => x.AutomaticValidationEnabled = false);
