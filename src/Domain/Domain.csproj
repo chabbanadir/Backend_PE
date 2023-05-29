@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>Backend.Domain</RootNamespace>
+        <AssemblyName>Backend.Domain</AssemblyName>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="Entities\DrawingGenerator\Drawing\**" />
+      <Compile Remove="Entities\DrawingGenerator\Generator\**" />
+      <Compile Remove="Entities\DrawingGenerator\Sketch\**" />
+      <Compile Remove="Entities\DrawingGenerator\SmartAssembly\**" />
+      <EmbeddedResource Remove="Entities\DrawingGenerator\Drawing\**" />
+      <EmbeddedResource Remove="Entities\DrawingGenerator\Generator\**" />
+      <EmbeddedResource Remove="Entities\DrawingGenerator\Sketch\**" />
+      <EmbeddedResource Remove="Entities\DrawingGenerator\SmartAssembly\**" />
+      <None Remove="Entities\DrawingGenerator\Drawing\**" />
+      <None Remove="Entities\DrawingGenerator\Generator\**" />
+      <None Remove="Entities\DrawingGenerator\Sketch\**" />
+      <None Remove="Entities\DrawingGenerator\SmartAssembly\**" />
+    </ItemGroup>
+
+</Project>
