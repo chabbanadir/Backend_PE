@@ -20,6 +20,7 @@ namespace Backend.Application.Features.DrawingData.Commands
         public IFormFile? Pdf1 { get; set; }
         public IFormFile? Pdf2 { get; set; }
         public IFormFile? ExcelFile { get; set; }
+        public IFormFile? ImagePath { get; set; }
     }
 
     public class SaveDrawingDataCommandProfile : IMapFrom<Backend.Domain.Entities.DrawingData>,IRequest<SaveDrawingDataResponse>

@@ -17,6 +17,8 @@ namespace Backend.Application.Features.DrawingData
         public string? HarnessMaker { get; set; }
         public int NumberOfConnectors { get; set; }
         public List<ComponentWithSideDto>? Components { get; set; }
+        public string? ImagePath { get; set;}
+        public string? Created { get; set;}
     }
 
     public class ComponentWithSideDto

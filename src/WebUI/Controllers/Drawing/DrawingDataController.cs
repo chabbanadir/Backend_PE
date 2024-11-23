@@ -43,7 +43,7 @@ namespace Backend.WebUI.Controllers
         
 
 
-        [HttpGet("drawings/{id:guid}")]
+        [HttpGet("{id:guid}")]
         public async Task<ActionResult<DrawingDataDetailVm>> GetDrawingById(string id)
         {  
             var result = await _mediator.Send(new GetDrawingDataDetailQuery { Id = id });

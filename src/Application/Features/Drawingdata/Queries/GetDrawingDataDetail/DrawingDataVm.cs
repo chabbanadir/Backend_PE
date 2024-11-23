@@ -20,6 +20,7 @@ namespace Backend.Application.Features.Drawings.Queries.GetDrawingDetail
         public string CDPath { get; set; }
         public string PDPath { get; set; }
         public string ExcelFilePath { get; set; }
+        public string ImagePath { get; set; }
 
         // Other properties and relationships as needed
 

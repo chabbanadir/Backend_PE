@@ -40,15 +40,17 @@ namespace Backend.Application.Features.DrawingData.Commands
 
        
         // Save the PDF and Excel file
-        await SavePdfFile(request.Pdf1, drawingData.TEPartNumber  + "PD.pdf");
-        await SavePdfFile(request.Pdf2,  drawingData.TEPartNumber  +"CD.pdf");
-        await SaveExcelFile(request.ExcelFile,  drawingData.TEPartNumber  +"SmartAssembly.xlsm");
+   
+
+        // Save Image file
+        await SaveImageFile(request.ImagePath, drawingData.TEPartNumber +".jpeg");
+        
         
         //  Add the files paths to DrawingData
         drawingData.CDPath = await SavePdfFile(request.Pdf1, drawingData.TEPartNumber + "PD.pdf");
         drawingData.PDPath = await SavePdfFile(request.Pdf2, drawingData.TEPartNumber + "CD.pdf");
         drawingData.ExcelFilePath = await SaveExcelFile(request.ExcelFile, drawingData.TEPartNumber + "SmartAssembly.xlsm");
-
+        drawingData.ImagePath = "https://localhost:5001/Drawings/"+ await SaveImageFile(request.ImagePath, drawingData.TEPartNumber + ".jpeg");
         
          await _drawingDataRepository.Create(drawingData, cancellationToken);
 
@@ -76,6 +78,23 @@ namespace Backend.Application.Features.DrawingData.Commands
 
             // Return the file path
             return _fileStorageService.GetFilePath(fileName);
+        }
+
+        return null; // or throw an exception, depending on your requirement
+    }
+        private async Task<string> SaveImageFile(IFormFile file, string fileName)
+    {
+        if (file != null && file.Length > 0)
+        {
+            // Save the file using the file storage service
+            using (var stream = new MemoryStream())
+            {
+                await file.CopyToAsync(stream);
+                await _fileStorageService.SaveFile(stream.ToArray(), fileName);
+            }
+
+            // Return the file path
+            return fileName;
         }
 
         return null; // or throw an exception, depending on your requirement

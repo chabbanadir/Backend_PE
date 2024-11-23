@@ -76,6 +76,11 @@ namespace Persistence.Migrations
                 table: "DrawingData",
                 nullable: true);
                 
+            migrationBuilder.AddColumn<string>(
+                name: "ImagePath",
+                table: "DrawingData",
+                nullable: true);
+
             migrationBuilder.CreateIndex(
                 name: "IX_ComponentWithSide_ComponentId",
                 table: "ComponentWithSide",

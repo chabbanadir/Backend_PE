@@ -18,8 +18,7 @@ namespace Backend.Domain.Entities
         public string CDPath { get; set; }
         public string PDPath { get; set; }
         public string ExcelFilePath { get; set; }
-
-        // Other properties and relationships as needed
+        public string ImagePath { get; set; }
 
         public DrawingData()
         {
